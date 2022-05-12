@@ -8,11 +8,17 @@
     <color name="black">#FF000000</color>
     <color name="black_500">#262626</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="transparentColor" >#00FFFFFF</color>
-    <color name="primaryColor">#12A058</color>
+    <color name="transparentColor" >#00000000</color>
+    <color name="primaryColor">#425c59</color>
     <color name="primaryDarkColor">#12A058</color>
     <color name="accentColor">#12A058</color>
     <color name="textColor">#FFFFFF</color>
     <color name="itemTextColor">#707070</color>
     <color name="orange">#ff8c00</color>
+
+    <color name="light_white">#D2D2D2</color>
+    <color name="card_1">#A3E4D7</color>
+    <color name="card_2">#F9E79F</color>
+    <color name="card_3">#D7BDE2</color>
+    <color name="card_4">#D2C3D8</color>
 </resources>

@@ -23,10 +23,11 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backImageView"
         tools:ignore="UseCompoundDrawables">
@@ -42,11 +43,12 @@
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="33dp"
             android:gravity="center"
             android:text="Sign Up"
             android:textColor="@color/black"
             android:textSize="24sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -60,6 +62,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+<!--        <de.hdodenhof.circleimageview.CircleImageView-->
+<!--            android:id="@+id/Upload_image"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:clickable="true"-->
+<!--            android:src="@drawable/upload1"-->
+<!--            app:civ_border_width="1dp">-->
+
+<!--        </de.hdodenhof.circleimageview.CircleImageView>-->
 
         <EditText
             android:id="@+id/nameEditText"
@@ -142,4 +154,5 @@
             android:text="@string/signup"
             android:textColor="@color/white" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

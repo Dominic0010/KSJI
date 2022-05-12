@@ -10,27 +10,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KSJI833">
         <activity
+            android:name=".chatUi.EditName"
+            android:exported="false" />
+        <activity
+            android:name=".chatUi.DashBoard"
+            android:exported="false"
+            android:label="@string/title_activity_dash_board"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.KSJI833.NoActionBar" />
-
         <activity
             android:name=".AccountRecoveryActivity"
             android:exported="false"
-            android:theme="@style/Theme.KSJI833.NoActionBar"/>
+            android:theme="@style/Theme.KSJI833.NoActionBar" />
         <activity
             android:name=".UpdatePasswordActivity"
             android:exported="false"
-            android:theme="@style/Theme.KSJI833.NoActionBar"/>
+            android:theme="@style/Theme.KSJI833.NoActionBar" />
         <activity
             android:name=".CheckEmailActivity"
             android:exported="false"
-            android:theme="@style/Theme.KSJI833.NoActionBar"/>
+            android:theme="@style/Theme.KSJI833.NoActionBar" />
         <activity
             android:name=".SignUpActivity"
             android:exported="false"
-            android:theme="@style/Theme.KSJI833.NoActionBar"/>
+            android:theme="@style/Theme.KSJI833.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:exported="false"
