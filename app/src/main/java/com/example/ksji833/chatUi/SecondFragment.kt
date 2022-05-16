@@ -29,6 +29,7 @@ class SecondFragment : Fragment() {
     private lateinit var fragmentsecondBinding: FragmentSecondBinding
     private lateinit var mobileContacts:ArrayList<UserInfoModel>
     private lateinit var appContacts:ArrayList<UserInfoModel>
+    private var contactAdapter: ContactAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,13 +42,14 @@ class SecondFragment : Fragment() {
         if (appPermission.isContactOk(requireContext())){
             getContact()
         }else appPermission.requestContactPermission(requireActivity())
-        fragmentsecondBinding.contactSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        fragmentsecondBinding.contactSearchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                ContactAdapter.filter.filter(newText)
+//                contactAdapter!!.filter.filter(newText)
                 return false
             }
         })

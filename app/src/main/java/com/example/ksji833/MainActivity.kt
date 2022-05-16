@@ -28,6 +28,7 @@ import com.example.ksji833.databinding.ActivityMain3Binding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import java.lang.StringBuilder
 
 class MainActivity : AppCompatActivity() {
 
@@ -120,56 +121,56 @@ class MainActivity : AppCompatActivity() {
 //         nameEditText.setText(Common.currentUser!!.name)
 //         emailEditText.setText(Common.currentUser!!.email)
 
-         if(Common.currentUser != null && Common.currentUser!!.avatar != null && !TextUtils.isEmpty(Common.currentUser.avatar)){
+         if(Common.currentUser !=null && Common.currentUser!!.avatar !=null && !TextUtils.isEmpty(Common.currentUser!!.avatar))
+         {
              Glide.with(this)
-                 .load(Common.currentUser.avatar)
+                 .load(Common.currentUser!!.avatar)
                  .into(img_avatar)
          }
 
-         img_avatar.setOnClickListener {
+
+         img_avatar.setOnClickListener{
              val intent = Intent()
              intent.setType("image/*")
              intent.setAction(Intent.ACTION_GET_CONTENT)
              startActivityForResult(Intent.createChooser(intent,"Select Picture"),PICK_IMAGE_REQUEST)
-
          }
-    }
+     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK){
-
-            if (data != null && data.data !=null)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK)
+        {
+            if (data != null && data.data != null)
             {
-                imageUri = data.data
+                imageUri = data!!.data
                 img_avatar.setImageURI(imageUri)
 
-                showDialogupload()
+                showDialogUpload()
             }
         }
     }
 
-    private fun showDialogupload() {
+    private fun showDialogUpload() {
         val builder = AlertDialog.Builder(this@MainActivity)
-        builder.setTitle("Change Profile Picture?")
-            .setMessage("Do you really want to Change Profile Picture?")
-            .setNegativeButton("CANCEL") { dialogInterface, _ -> dialogInterface.dismiss() }
+        builder.setTitle("Change Avatar")
+            .setMessage("Do you really want to change Avatar?")
+            .setNegativeButton("Cancel") { dialogInterface, _ -> dialogInterface.dismiss() }
             .setPositiveButton("CHANGE"){ dialogInterface, _ ->
-
-                if (imageUri !=null)
+                if (imageUri != null)
                 {
                     waitingDialog.show()
                     val avatarFolder = storageReference.child("avatars/"+FirebaseAuth.getInstance().currentUser!!.uid)
 
                     avatarFolder.putFile(imageUri!!)
-                        .addOnFailureListener{e ->
+                        .addOnFailureListener{e->
                             Snackbar.make(drawerLayout,e.message!!,Snackbar.LENGTH_LONG).show()
                             waitingDialog.dismiss()
                         }.addOnCompleteListener{ task ->
-                            if (task.isSuccessful)
+                            if(task.isSuccessful)
                             {
                                 avatarFolder.downloadUrl.addOnSuccessListener { uri ->
-                                    val update_data =  HashMap<String,Any>()
+                                    val update_data = HashMap<String,Any>()
                                     update_data.put("avatar",uri.toString())
 
                                     UserUtils.updateUser(drawerLayout,update_data)
@@ -177,11 +178,11 @@ class MainActivity : AppCompatActivity() {
                             }
                             waitingDialog.dismiss()
                         }.addOnProgressListener { taskSnapshot ->
-                            val progress = (100*taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount)
+                            val progress = (100.0*taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount)
                             waitingDialog.setMessage(StringBuilder("Uploading:").append(progress).append("%"))
-                            
                         }
                 }
+
 
             }.setCancelable(false)
 

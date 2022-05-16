@@ -36,8 +36,7 @@
                         android:id="@+id/img_avatar"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        imageUrl="@{userModel.avatar}"/>
+                        android:layout_gravity="center"/>
 
 
                 </androidx.coordinatorlayout.widget.CoordinatorLayout>

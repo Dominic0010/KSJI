@@ -142,7 +142,7 @@ class SignUpActivity : AppCompatActivity() {
         email: String, uid: String
     ){
         UserInfoRef = FirebaseDatabase.getInstance().getReference()
-        UserInfoRef.child("User").child(uid).setValue(UserInfoModel(name,email,uid,avatar = null))
+        UserInfoRef.child("User").child(uid).setValue(UserInfoModel(name,email,uid,avatar = null,status = null))
 
     }
 

@@ -3,50 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/drawable/ic_baseline_contacts_24.xml" value="0.259" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.246" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.259" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/drawable/ic_like.xml" value="0.259" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.259" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/drawable/item_selector.xml" value="0.259" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/drawable/left_side_background.xml" value="0.199" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/drawable/right_side_background.xml" value="0.199" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/drawable/round_corner.xml" value="0.259" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_cdb.xml" value="0.213768115942029" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_dash_board.xml" value="0.264" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_delete_account.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_edit_name.xml" value="0.16228467815049863" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_login.xml" value="0.213768115942029" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_main1.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_main3.xml" value="0.213768115942029" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_message.xml" value="0.1" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_sign_up.xml" value="0.24547101449275363" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_user_info.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/app_bar_main.xml" value="0.19293478260869565" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/contact_item_layout.xml" value="0.2" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/content_main.xml" value="0.24547101449275363" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/dialog_layout.xml" value="0.264" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/fragment_first.xml" value="0.152" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/fragment_first2.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/fragment_gallery.xml" value="0.213768115942029" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/fragment_notifications.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/fragment_second.xml" value="0.264" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/fragment_slideshow.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/fragment_third.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/left_item_layout.xml" value="0.1" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/message_toolbar.xml" value="0.536" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/nav_header_main.xml" value="0.19293478260869565" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/layout/right_item_layout.xml" value="0.6" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/menu/items_menu.xml" value="0.20863616930312098" />
-        <entry key="..\:/Users/EFYA/AndroidStudioProjects/KSJI/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Records/AndroidStudioProjects/KSJI/app/src/main/res/layout/activity_user_info.xml" value="0.16770833333333332" />
+        <entry key="..\:/Users/Records/AndroidStudioProjects/KSJI/app/src/main/res/layout/fragment_second.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/Records/AndroidStudioProjects/KSJI/app/src/main/res/layout/fragment_third.xml" value="0.16770833333333332" />
+        <entry key="..\:/Users/Records/AndroidStudioProjects/KSJI/app/src/main/res/layout/left_item_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Records/AndroidStudioProjects/KSJI/app/src/main/res/layout/nav_header_main.xml" value="0.16770833333333332" />
+        <entry key="..\:/Users/Records/AndroidStudioProjects/KSJI/app/src/main/res/layout/right_item_layout.xml" value="0.16770833333333332" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

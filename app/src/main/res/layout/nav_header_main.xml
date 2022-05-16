@@ -22,7 +22,6 @@
         android:id="@+id/img_avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        imageUrl="@{UserInfoModel.avatar}"
         android:src="@mipmap/ic_launcher_round"
         app:civ_border_width="1dp"
         app:civ_border_color="@android:color/white"/>
