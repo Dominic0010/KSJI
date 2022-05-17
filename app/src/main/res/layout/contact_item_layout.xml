@@ -71,6 +71,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgContact"
         android:layout_alignTop="@+id/chat_container"
+        android:src="@drawable/ic_launcher_background"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:elevation="10dp"

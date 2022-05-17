@@ -49,7 +49,7 @@ class ThirdFragment : Fragment() {
 
         appPermission = AppPermission()
         firebaseAuth = FirebaseAuth.getInstance()
-        sharedPreferences =  requireContext().getSharedPreferences("userData", Context.MODE_PRIVATE)
+        sharedPreferences =   requireContext().getSharedPreferences("userData", Context.MODE_PRIVATE)
 
         profileViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application).create(ProfileViewModel::class.java)
 

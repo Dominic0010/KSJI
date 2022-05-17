@@ -21,7 +21,7 @@
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.KSJI833.NoActionBar" />
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".AccountRecoveryActivity"
             android:exported="false"
