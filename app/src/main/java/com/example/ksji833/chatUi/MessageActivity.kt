@@ -112,6 +112,7 @@ class MessageActivity : AppCompatActivity() {
         databaseReference.push().setValue(messageModel)
     }
 
+
     private fun sendMessage(message: String){
 
         if (chatId==null)
