@@ -72,6 +72,7 @@ class FirstFragment : Fragment() {
                                 userInfoModel?.name!!, chatListModel.lastMessage, userInfoModel.avatar!!,date)
 
                             holder.chatItemLayoutBinding.chatModel = chatModel
+                            holder.itemView.setOnClickListener {  }
                         }
                     }
 
