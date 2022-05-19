@@ -1,6 +1,7 @@
 package com.example.ksji833.Utils
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import kotlin.time.measureTimedValue
 
@@ -57,5 +58,14 @@ class AppUtils {
             }
 
         }
+    }
+
+    fun updateOnlineStatus(status: String) {
+
+        val databaseReference =
+            FirebaseDatabase.getInstance().getReference("User").child(getUID()!!)
+        val map = HashMap<String, Any>()
+        map["online"] = status
+        databaseReference.updateChildren(map)
     }
 }

@@ -1,9 +1,6 @@
 package com.example.ksji833
 
-import android.net.Uri
-import android.os.Parcel
-import android.os.Parcelable
-import androidx.activity.result.ActivityResultLauncher
+
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
@@ -25,7 +22,7 @@ class UserInfoModel{
 
     //    var Upload_imageUri : Uri? = null
 
-    constructor(){}
+    constructor()
 
     constructor(name: String?, email:String?, uid: String?, avatar: String?,status:String?){
         this.name = name
@@ -36,14 +33,14 @@ class UserInfoModel{
 //        this.Upload_imageUri= Upload_imageUri
     }
 
-//    companion object{
-//        @JvmStatic
-//        @BindingAdapter("imageUrl")
-//        fun loadImage(view: CircleImageView, imageUrl: String?) {
-//            imageUrl?.let {
-//                Glide.with(view.context).load(imageUrl).into(view)
-//            }
-//        }
-//    }
+    companion object{
+        @JvmStatic
+        @BindingAdapter("imageUrl")
+        fun loadImage(view: CircleImageView, imageUrl: String?) {
+            imageUrl?.let {
+                Glide.with(view.context).load(imageUrl).into(view)
+            }
+        }
+    }
 
 }

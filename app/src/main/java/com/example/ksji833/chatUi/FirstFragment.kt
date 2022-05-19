@@ -1,5 +1,6 @@
 package com.example.ksji833.chatUi
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ksji833.ChatListModel
+import com.example.ksji833.ChatModel
 import com.example.ksji833.R
 import com.example.ksji833.UserInfoModel
 import com.example.ksji833.Utils.AppUtils
@@ -28,11 +30,6 @@ class FirstFragment : Fragment() {
     private lateinit var appUtils: AppUtils
     private lateinit var firebaseRecyclerAdapter: FirebaseRecyclerAdapter<ChatListModel,ViewHolder>
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,11 +65,18 @@ class FirstFragment : Fragment() {
                             val userInfoModel =  snapshot.getValue(UserInfoModel::class.java)
                             val date = appUtils.getTimeAgo(chatListModel.date.toLong())
 
-                            val chatModel = ChatListModel(chatListModel.chatId,
-                                userInfoModel?.name!!, chatListModel.lastMessage, userInfoModel.avatar!!,date)
+                            val chatModel = ChatModel(chatListModel.chatId,
+                                userInfoModel?.name!!,
+                                chatListModel.lastMessage, userInfoModel.avatar!!,date)
 
                             holder.chatItemLayoutBinding.chatModel = chatModel
-                            holder.itemView.setOnClickListener {  }
+                            holder.itemView.setOnClickListener {
+                                val intent = Intent(context,MessageActivity::class.java)
+                                intent.putExtra("hisId",userInfoModel.uid)
+                                intent.putExtra("hisImage",userInfoModel.avatar)
+                                intent.putExtra("chatId",chatListModel.chatId)
+                                startActivity(intent)
+                            }
                         }
                     }
 
@@ -83,9 +87,12 @@ class FirstFragment : Fragment() {
             }
 
         }
-        binding.recyclerViewChat.LayoutManger = LinearLayoutManager(context)
-        binding.recyclerViewChat.setHasFixedSize(false)
-        binding.recyclerViewChat.adapter = firebaseRecyclerAdapter
+
+        binding.recyclerViewChat.apply{
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            adapter = firebaseRecyclerAdapter
+        }
     }
 
 

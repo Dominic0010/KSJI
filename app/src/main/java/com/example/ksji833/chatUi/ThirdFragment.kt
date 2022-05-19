@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.example.ksji833.Common
 import com.example.ksji833.Constants.AppConstants
 import com.example.ksji833.Permissions.AppPermission
 import com.example.ksji833.R
@@ -50,19 +53,21 @@ class ThirdFragment : Fragment() {
         appPermission = AppPermission()
         firebaseAuth = FirebaseAuth.getInstance()
         sharedPreferences =   requireContext().getSharedPreferences("userData", Context.MODE_PRIVATE)
+        userModel = UserInfoModel()
 
         profileViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application).create(ProfileViewModel::class.java)
 
-        profileViewModel.getUser().observe(viewLifecycleOwner, Observer {
-            thirdBinding.userModel=it
+        profileViewModel.getUser().observe(viewLifecycleOwner, Observer { userModel ->
+            thirdBinding.userModel = userModel
 
-            if (it.name!!.contains("")){
-                var split = it.name!!.split("")
+            if (userModel.name!!.contains("")){
+                val split = userModel.name!!.split("")
 
                 thirdBinding.txtProfileFName.text = split[0]
-                thirdBinding.txtProfileLName.text = split[1]
 
             }
+
+            img_avatar
 
             thirdBinding.cardName.setOnClickListener {
                 val intent = Intent(context, EditName::class.java)
@@ -80,6 +85,7 @@ class ThirdFragment : Fragment() {
         thirdBinding.imgEditStatus.setOnClickListener {
             getStatusDialog()
         }
+
 
 
         return thirdBinding.root
@@ -110,6 +116,8 @@ class ThirdFragment : Fragment() {
                 val userName = data?.getStringExtra("name")
 
                 profileViewModel. updateName(userName)
+                val editor = sharedPreferences.edit()
+                editor.putString("myName", userName).apply()
             }
         }
     }

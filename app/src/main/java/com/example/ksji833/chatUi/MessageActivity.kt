@@ -52,8 +52,20 @@ class MessageActivity : AppCompatActivity() {
 
         activityMessageBinding.activity = this
 
-        hisId = intent.getStringExtra("hisId")
-        hisImage = intent.getStringExtra("hisImage")
+        if (intent.hasExtra("chatId")){
+            chatId = intent.getStringExtra("chatId")
+            hisId = intent.getStringExtra("hisId")
+            hisImage = intent.getStringExtra("hisImage")
+
+            readMessages(chatId!!)
+
+        }else {
+
+            hisId = intent.getStringExtra("hisId")
+            hisImage = intent.getStringExtra("hisImage")
+        }
+
+        activityMessageBinding.hisImage = hisImage
 
         activityMessageBinding.btnSend.setOnClickListener {
             val message = activityMessageBinding.msgText.text.toString()

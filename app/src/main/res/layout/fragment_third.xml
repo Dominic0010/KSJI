@@ -33,6 +33,7 @@
                 android:layout_weight="1.4">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    imageUrl="@{userModel.avatar}"
                     android:id="@+id/img_avatar"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -53,7 +54,7 @@
                 android:layout_height="0dp"
                 android:layout_weight=".3"
                 android:layout_gravity="center"
-                android:text="Nothing"
+                android:text="@{userModel.name, default = nothing}"
                 android:textSize="20dp"
                 android:textColor="@color/card_2"
                 android:textStyle="bold"/>
@@ -61,16 +62,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight=".3">
+
                 <TextView
                     android:id="@+id/textProfileStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:layout_weight=".4"
-                   android:layout_centerInParent="true"
-                    android:text="Nothing"
-                    android:textSize="20dp"
+                    android:text="@{userModel.status , default = nothing}"
                     android:textColor="@color/card_2"
-                    android:textStyle="bold"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/imgEditStatus"
@@ -120,20 +122,13 @@
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:text="First Name"
+                            android:text="Name"
                             android:textSize="15dp"
                             android:textStyle="bold"
                             android:layout_marginStart="10dp"
                             android:textColor="@color/card_1"/>
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="Last Name"
-                            android:textSize="15dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/card_1"/>
+
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -156,18 +151,6 @@
                             android:text="@{userModel.name}"
                             android:textSize="15dp"
                             android:layout_marginStart="5dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/primaryColor"/>
-
-                        <TextView
-                            android:id="@+id/txtProfileLName"
-                            android:layout_width="0dp"
-                            android:layout_weight="1.1"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:text="Last Name"
-                            android:textSize="15dp"
-                            android:layout_marginEnd="10dp"
                             android:textStyle="bold"
                             android:textColor="@color/primaryColor"/>
                     </LinearLayout>
@@ -198,7 +181,7 @@
                     <TextView
                         android:id="@+id/txtProfileNumber"
                         android:layout_width="wrap_content"
-                        android:text="+2332412345689"
+                        android:text="@{userModel.email, default = nothing}"
                         android:textSize="15dp"
                         android:textColor="@color/card_4"
                         android:textStyle="bold"

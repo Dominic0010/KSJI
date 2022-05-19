@@ -3,6 +3,7 @@ package com.example.ksji833.chatUi
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ksji833.UserInfoModel
+import com.example.ksji833.Utils.AppUtils
 import com.example.ksji833.databinding.ActivityUserInfoBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -14,6 +15,7 @@ class UserInfoActivity: AppCompatActivity() {
 
     private  var userId:String? = null
     private lateinit var activityUserInfoBinding: ActivityUserInfoBinding
+    private lateinit var appUtil: AppUtils
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -36,7 +38,6 @@ class UserInfoActivity: AppCompatActivity() {
                     if(userInfoModel!!.name!!.contains("")){
                         val split = userInfoModel.name!!.split("")
                         activityUserInfoBinding.txtProfileFName.text = split[0]
-                        activityUserInfoBinding.txtProfileLName.text = split[0]
                     }
                 }
             }
@@ -46,6 +47,17 @@ class UserInfoActivity: AppCompatActivity() {
             }
 
         })
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        appUtil.updateOnlineStatus("offline")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        appUtil.updateOnlineStatus("online")
     }
 
 }

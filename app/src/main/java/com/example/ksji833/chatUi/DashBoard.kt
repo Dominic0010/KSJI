@@ -8,6 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.ksji833.R
+import com.example.ksji833.Utils.AppUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_dash_board.*
 import kotlinx.android.synthetic.main.activity_main1.*
@@ -17,11 +18,13 @@ class DashBoard : AppCompatActivity() {
     private val chatFragment = FirstFragment()
     private val contactsFragment = SecondFragment()
     private val notificationFragment = ThirdFragment()
+    private lateinit var  appUtil: AppUtils
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
+        appUtil = AppUtils()
 
 //        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 //        val navController = findNavController(R.id.body_container)
@@ -67,5 +70,15 @@ class DashBoard : AppCompatActivity() {
             transaction.replace(R.id.body_container, fragment)
             transaction.commit()
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        appUtil.updateOnlineStatus("offline")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        appUtil.updateOnlineStatus("online")
     }
 }
