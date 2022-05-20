@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -20,16 +22,21 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.ksji833.Common
 import com.example.ksji833.Constants.AppConstants
+import com.example.ksji833.MainActivity
 import com.example.ksji833.Permissions.AppPermission
 import com.example.ksji833.R
 import com.example.ksji833.UserInfoModel
+import com.example.ksji833.Utils.UserUtils
 import com.example.ksji833.ViewModels.ProfileViewModel
 import com.example.ksji833.databinding.FragmentThirdBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.dialog_layout.view.*
-import kotlinx.android.synthetic.main.fragment_third.*
+import kotlinx.android.synthetic.main.fragment_third.img_avatar
+import java.io.File
 
 
 class ThirdFragment : Fragment() {
@@ -42,6 +49,8 @@ class ThirdFragment : Fragment() {
     private lateinit var storageReference: StorageReference
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var img_avatar: ImageView
+    private var imageUri:Uri? = null
 
 
     override fun onCreateView(
@@ -60,6 +69,7 @@ class ThirdFragment : Fragment() {
         profileViewModel.getUser().observe(viewLifecycleOwner, Observer { userModel ->
             thirdBinding.userModel = userModel
 
+
             if (userModel.name!!.contains("")){
                 val split = userModel.name!!.split("")
 
@@ -67,7 +77,6 @@ class ThirdFragment : Fragment() {
 
             }
 
-            img_avatar
 
             thirdBinding.cardName.setOnClickListener {
                 val intent = Intent(context, EditName::class.java)
@@ -79,12 +88,14 @@ class ThirdFragment : Fragment() {
         thirdBinding.imgPickImage.setOnClickListener {
             if (appPermission.isStorageOk(requireContext())){
 //                uploadImage()
-            }
+            }else appPermission.requestStoragePermission(requireActivity())
         }
 
         thirdBinding.imgEditStatus.setOnClickListener {
             getStatusDialog()
         }
+
+
 
 
 
@@ -118,9 +129,12 @@ class ThirdFragment : Fragment() {
                 profileViewModel. updateName(userName)
                 val editor = sharedPreferences.edit()
                 editor.putString("myName", userName).apply()
+
             }
+
         }
     }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
