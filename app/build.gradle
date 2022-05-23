@@ -89,5 +89,11 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.4.1'
 
 
+//    Groupie
+    implementation 'com.github.lisawray.groupie:groupie:2.1.0'
+
+//    Piscasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
 }
