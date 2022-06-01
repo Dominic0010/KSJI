@@ -1,35 +1,26 @@
 package com.example.ksji833.chatUi
 
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.provider.ContactsContract
 import androidx.fragment.app.Fragment
-import android.widget.Filter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ksji833.Permissions.AppPermission
 import com.example.ksji833.R
-import androidx.recyclerview.widget.RecyclerView
 import com.example.ksji833.Adapter.ContactAdapter
-import com.example.ksji833.Constants.AppConstants
 import com.example.ksji833.UserInfoModel
 import com.example.ksji833.databinding.FragmentSecondBinding
-import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.contact_item_layout.view.*
 import kotlinx.android.synthetic.main.fragment_second.*
-import java.util.Locale.filter
 
 class SecondFragment : Fragment() {
     private lateinit var appPermission: AppPermission
@@ -173,7 +164,7 @@ class SecondFragment : Fragment() {
                     val user = it.getValue(UserInfoModel::class.java)
 
                     if (user !=null){
-                        adapter.add(UserItem())
+                        adapter.add(UserItem(user))
                     }
                 }
 
@@ -189,9 +180,11 @@ class SecondFragment : Fragment() {
     }
 
 }
-class UserItem: Item<ViewHolder>(){
+class UserItem(val UserInfoModel: UserInfoModel?): Item<ViewHolder>(){
     override fun bind(viewHolder: ViewHolder, position: Int) {
-        viewHolder.itemView.txtContactName.text
+        viewHolder.itemView.txtContactName.text = UserInfoModel!!.name
+
+        Picasso.get().load(UserInfoModel.avatar).into(viewHolder.itemView.imgContact)
     }
 
     override fun getLayout(): Int {

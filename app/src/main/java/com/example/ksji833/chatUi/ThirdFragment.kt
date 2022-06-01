@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.icu.number.NumberFormatter.with
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
@@ -16,10 +17,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Glide.with
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions.with
+import com.example.ksji833.Adapter.ContactAdapter
 import com.example.ksji833.Common
 import com.example.ksji833.Constants.AppConstants
 import com.example.ksji833.MainActivity
@@ -33,9 +38,13 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
+import com.xwray.groupie.ViewHolder
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.contact_item_layout.view.*
 import kotlinx.android.synthetic.main.dialog_layout.view.*
 import kotlinx.android.synthetic.main.fragment_third.img_avatar
+import kotlinx.android.synthetic.main.fragment_third.view.*
 import java.io.File
 
 
@@ -58,7 +67,6 @@ class ThirdFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         thirdBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_third,container,false)
-
         appPermission = AppPermission()
         firebaseAuth = FirebaseAuth.getInstance()
         sharedPreferences =   requireContext().getSharedPreferences("userData", Context.MODE_PRIVATE)
@@ -68,6 +76,7 @@ class ThirdFragment : Fragment() {
 
         profileViewModel.getUser().observe(viewLifecycleOwner, Observer { userModel ->
             thirdBinding.userModel = userModel
+
 
 
             if (userModel.name!!.contains("")){
@@ -95,12 +104,18 @@ class ThirdFragment : Fragment() {
             getStatusDialog()
         }
 
-
-
-
+//        img_avatar = findViewById(R.id.img_avatar)
 
         return thirdBinding.root
+
     }
+
+    private fun bind(viewHolder: ViewHolder, position: Int) {
+
+        Picasso.get().load(userModel.avatar).into(img_avatar)
+    }
+
+
 
 
     private fun getStatusDialog(){
