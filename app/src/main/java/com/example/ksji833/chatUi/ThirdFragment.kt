@@ -43,7 +43,7 @@ import com.xwray.groupie.ViewHolder
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.contact_item_layout.view.*
 import kotlinx.android.synthetic.main.dialog_layout.view.*
-import kotlinx.android.synthetic.main.fragment_third.img_avatar
+import kotlinx.android.synthetic.main.fragment_third.img_avatar1
 import kotlinx.android.synthetic.main.fragment_third.view.*
 import java.io.File
 
@@ -58,7 +58,7 @@ class ThirdFragment : Fragment() {
     private lateinit var storageReference: StorageReference
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var img_avatar: ImageView
+    private lateinit var img_avatar1: ImageView
     private var imageUri:Uri? = null
 
 
@@ -72,11 +72,14 @@ class ThirdFragment : Fragment() {
         sharedPreferences =   requireContext().getSharedPreferences("userData", Context.MODE_PRIVATE)
         userModel = UserInfoModel()
 
+
+
+
+
         profileViewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application).create(ProfileViewModel::class.java)
 
         profileViewModel.getUser().observe(viewLifecycleOwner, Observer { userModel ->
             thirdBinding.userModel = userModel
-
 
 
             if (userModel.name!!.contains("")){
@@ -94,11 +97,11 @@ class ThirdFragment : Fragment() {
             }
         })
 
-        thirdBinding.imgPickImage.setOnClickListener {
-            if (appPermission.isStorageOk(requireContext())){
-//                uploadImage()
-            }else appPermission.requestStoragePermission(requireActivity())
-        }
+//        thirdBinding.imgPickImage.setOnClickListener {
+//            if (appPermission.isStorageOk(requireContext())){
+////                uploadImage()
+//            }else appPermission.requestStoragePermission(requireActivity())
+//        }
 
         thirdBinding.imgEditStatus.setOnClickListener {
             getStatusDialog()
@@ -108,11 +111,6 @@ class ThirdFragment : Fragment() {
 
         return thirdBinding.root
 
-    }
-
-    private fun bind(viewHolder: ViewHolder, position: Int) {
-
-        Picasso.get().load(userModel.avatar).into(img_avatar)
     }
 
 
@@ -165,23 +163,23 @@ class ThirdFragment : Fragment() {
         }
     }
 
-    private fun uploadImage(imageUri: Uri){
-        storageReference = FirebaseStorage.getInstance().reference
-        storageReference.child(userModel.uid!!).putFile(imageUri)
-            .addOnSuccessListener { taskSnapshot ->
-                val task = taskSnapshot.storage.downloadUrl
-                task.addOnCompleteListener {
-                    if (it.isSuccessful){
-                        val imagePath = it.result.toString()
-
-                        val editor = sharedPreferences.edit()
-                        editor.putString("myImage", imagePath).apply()
-
-                        profileViewModel.updateImage(imagePath)
-                    }
-                }
-            }
-    }
+//    private fun uploadImage(imageUri: Uri){
+//        storageReference = FirebaseStorage.getInstance().reference
+//        storageReference.child(userModel.uid!!).putFile(imageUri)
+//            .addOnSuccessListener { taskSnapshot ->
+//                val task = taskSnapshot.storage.downloadUrl
+//                task.addOnCompleteListener {
+//                    if (it.isSuccessful){
+//                        val imagePath = it.result.toString()
+//
+//                        val editor = sharedPreferences.edit()
+//                        editor.putString("myImage", imagePath).apply()
+//
+//                        profileViewModel.updateImage(imagePath)
+//                    }
+//                }
+//            }
+//    }
 
 
 }

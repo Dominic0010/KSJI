@@ -34,18 +34,20 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     imageUrl="@{userModel.avatar}"
-                    android:id="@+id/img_avatar"
+                    android:id="@+id/img_avatar1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"/>
 
-                <ImageView
-                    android:id="@+id/imgPickImage"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_camera"
-                    app:layout_anchor="@id/img_avatar"
-                    app:layout_anchorGravity="end|center"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/imgPickImage"-->
+<!--                    imageUrl="@{userModel.avatar}"-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:src="@drawable/ic_camera"-->
+<!--                    app:layout_anchorGravity="end|center"/>-->
+
+<!--&lt;!&ndash;                //  app:layout_anchor="@id/img_avatar"&ndash;&gt;-->
 
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
             <TextView
