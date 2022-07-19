@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
+import com.example.ksji833.PublicUI.DashboardP
 import com.firebase.ui.auth.AuthMethodPickerLayout
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
@@ -55,7 +56,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         handler = Handler()
         handler.postDelayed({
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, DashboardP::class.java)
             startActivity(intent)
             finish()
         },3000)
